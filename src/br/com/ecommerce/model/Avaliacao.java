@@ -1,5 +1,7 @@
 package br.com.ecommerce.model;
 
+import br.com.ecommerce.exception.NotaInvalidaException;
+
 public class Avaliacao {
 
     private int idLoja;
@@ -36,9 +38,9 @@ public class Avaliacao {
         return notaLoja;
     }
 
-    public void setNotaLoja(int notaLoja) {
+    public void setNotaLoja(int notaLoja) throws NotaInvalidaException {
         if (notaLoja < 1 || notaLoja > 5) {
-            throw new RuntimeException("Nota deve ser entre 1 e 5");
+            throw new NotaInvalidaException("Nota da loja deve ser entre 1 e 5");
         }
         this.notaLoja = notaLoja;
     }
@@ -47,14 +49,14 @@ public class Avaliacao {
         return notaProduto;
     }
 
-    public void setNotaProduto(int notaProduto) {
+    public void setNotaProduto(int notaProduto) throws NotaInvalidaException {
         if (notaProduto < 1 || notaProduto > 5) {
-            throw new RuntimeException("Nota deve ser entre 1 e 5");
+            throw new NotaInvalidaException("Nota do produto deve ser entre 1 e 5");
         }
         this.notaProduto = notaProduto;
     }
 
-    public Avaliacao(int idProduto, int idLoja, String idCliente, int notaLoja, int notaProduto) {
+    public Avaliacao(int idProduto, int idLoja, String idCliente, int notaLoja, int notaProduto) throws NotaInvalidaException {
         this.idProduto = idProduto;
         this.idLoja = idLoja;
         this.idCliente = idCliente;
@@ -64,6 +66,4 @@ public class Avaliacao {
 
     public Avaliacao() {
     }
-
-
 }
