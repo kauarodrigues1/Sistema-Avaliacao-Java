@@ -10,6 +10,7 @@ public class Main {
     public static void main(String[] args) {
 
         Avaliacao avaliacao = new Avaliacao();
+
         Cliente cliente = new Cliente(UUID.randomUUID().toString(), "Kauã");
 
         avaliacao.setIdCliente(cliente.getId());
