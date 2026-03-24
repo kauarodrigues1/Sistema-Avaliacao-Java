@@ -8,6 +8,18 @@
 
 ---
 
+## GITHUB
+
+https://github.com/kauarodrigues1/Sistema-Avaliacao-Java
+
+---
+
+## SLIDE
+
+[https://github.com/kauarodrigues1/Sistema-Avaliacao-Java](https://www.canva.com/design/DAHE4ifp3rI/QnJXVSsvNrf7XhHE_FgA2w/edit?utm_content=DAHE4ifp3rI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
+---
+
 Este projeto representa o módulo de **avaliação de clientes** de um sistema de e-commerce, desenvolvido em Java com integração ao banco de dados Oracle.
 
 ---
