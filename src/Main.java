@@ -7,11 +7,22 @@ import javax.swing.JOptionPane;
 import java.util.UUID;
 
 public class Main {
+
+    private static String gerarNomeAleatorio() {
+        String[] nomes = {"Lucas", "Ana", "Rafael", "Julia", "Bruno"};
+        String[] sobrenomes = {"Silva", "Souza", "Oliveira", "Santos", "Costa"};
+
+        String nome = nomes[(int) (Math.random() * nomes.length)];
+        String sobrenome = sobrenomes[(int) (Math.random() * sobrenomes.length)];
+
+        return nome + " " + sobrenome;
+    }
+
     public static void main(String[] args) {
 
         Avaliacao avaliacao = new Avaliacao();
 
-        Cliente cliente = new Cliente(UUID.randomUUID().toString(), "Kauã");
+        Cliente cliente = new Cliente(UUID.randomUUID().toString(), gerarNomeAleatorio());
 
         avaliacao.setIdCliente(cliente.getId());
 
@@ -21,10 +32,10 @@ public class Main {
 
             avaliacao.setNotaLoja(notaLoja);
             avaliacao.setNotaProduto(notaProduto);
-            
+
             AvaliacaoDAO dao = new AvaliacaoDAO();
             dao.salvar(avaliacao);
-            System.out.println("Avaliação salva no banco!");
+            JOptionPane.showMessageDialog(null, "Avaliação enviada com sucesso!");
 
             System.out.println("Cliente ID: " + cliente.getId());
             System.out.println("Cliente Nome: " + cliente.getNome());

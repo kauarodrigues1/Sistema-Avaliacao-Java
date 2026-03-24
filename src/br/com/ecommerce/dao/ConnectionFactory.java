@@ -13,9 +13,9 @@ public class ConnectionFactory {
     public static Connection getConnection() throws SQLException {
         if (connection == null) {
             connection = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/ecommerce",
-                "root",
-                "senha"
+                    "jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL",
+                    "rm",
+                    ""
             );
         }
         return connection;

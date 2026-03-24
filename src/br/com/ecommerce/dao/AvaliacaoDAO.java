@@ -23,7 +23,8 @@ public class AvaliacaoDAO {
             stmt.execute();
 
         } catch (SQLException e) {
-            throw new NotaInvalidaException("Erro ao salvar avaliação no banco.");
+            e.printStackTrace();
+            throw new NotaInvalidaException("Erro ao salvar avaliação no banco." + e.getMessage());
         }
     }
 }
