@@ -1,6 +1,7 @@
 import br.com.ecommerce.model.Avaliacao;
 import br.com.ecommerce.model.Cliente;
 import br.com.ecommerce.exception.NotaInvalidaException;
+import br.com.ecommerce.dao.AvaliacaoDAO;
 
 import javax.swing.JOptionPane;
 import java.util.UUID;
@@ -19,6 +20,10 @@ public class Main {
 
             avaliacao.setNotaLoja(notaLoja);
             avaliacao.setNotaProduto(notaProduto);
+            
+            AvaliacaoDAO dao = new AvaliacaoDAO();
+            dao.salvar(avaliacao);
+            System.out.println("Avaliação salva no banco!");
 
             System.out.println("Cliente ID: " + cliente.getId());
             System.out.println("Cliente Nome: " + cliente.getNome());
