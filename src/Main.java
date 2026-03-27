@@ -13,6 +13,7 @@ public class Main {
 
         Avaliacao avaliacao = new Avaliacao();
         Cliente cliente = new Cliente(UUID.randomUUID().toString());
+        avaliacao.setIdCliente(cliente.getId());
 
         try {
             int notaLoja = lerNota("Nota da loja (1 a 5):");
@@ -53,4 +54,5 @@ public class Main {
             throw new NotaInvalidaException("Digite um número válido.");
         }
     }
+
 }

@@ -4,6 +4,7 @@ import br.com.ecommerce.exception.NotaInvalidaException;
 
 public class Avaliacao {
 
+    private String idCliente;
     private int idLoja;
     private int idProduto;
     private int notaLoja;
@@ -50,10 +51,20 @@ public class Avaliacao {
     public Avaliacao(int idProduto, int idLoja, String idCliente, int notaLoja, int notaProduto) throws NotaInvalidaException {
         this.idProduto = idProduto;
         this.idLoja = idLoja;
+        this.idCliente = idCliente;
         setNotaLoja(notaLoja);
         setNotaProduto(notaProduto);
     }
 
     public Avaliacao() {
     }
+
+    public String getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
+    }
+
 }

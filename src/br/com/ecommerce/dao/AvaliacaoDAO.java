@@ -13,11 +13,12 @@ public class AvaliacaoDAO {
         try {
             Connection conn = ConnectionFactory.getConnection();
 
-            String sql = "INSERT INTO avaliacao ( nota_loja, nota_produto) VALUES (?, ?)";
+            String sql = "INSERT INTO avaliacao (id_cliente, nota_loja, nota_produto) VALUES (?, ?, ?)";
 
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setInt(1, avaliacao.getNotaLoja());
-            stmt.setInt(2, avaliacao.getNotaProduto());
+            stmt.setString(1, avaliacao.getIdCliente());
+            stmt.setInt(2, avaliacao.getNotaLoja());
+            stmt.setInt(3, avaliacao.getNotaProduto());
 
             stmt.execute();
 
