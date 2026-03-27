@@ -1,3 +1,4 @@
+import br.com.ecommerce.dao.ClienteDAO;
 import br.com.ecommerce.model.Avaliacao;
 import br.com.ecommerce.model.Cliente;
 import br.com.ecommerce.exception.NotaInvalidaException;
@@ -8,23 +9,10 @@ import java.util.UUID;
 
 public class Main {
 
-    private static String gerarNomeAleatorio() {
-        String[] nomes = {"Lucas", "Ana", "Rafael", "Julia", "Bruno"};
-        String[] sobrenomes = {"Silva", "Souza", "Oliveira", "Santos", "Costa"};
-
-        String nome = nomes[(int) (Math.random() * nomes.length)];
-        String sobrenome = sobrenomes[(int) (Math.random() * sobrenomes.length)];
-
-        return nome + " " + sobrenome;
-    }
-
     public static void main(String[] args) {
 
         Avaliacao avaliacao = new Avaliacao();
-
-        Cliente cliente = new Cliente(UUID.randomUUID().toString(), gerarNomeAleatorio());
-
-        avaliacao.setIdCliente(cliente.getId());
+        Cliente cliente = new Cliente(UUID.randomUUID().toString());
 
         try {
             int notaLoja = lerNota("Nota da loja (1 a 5):");
@@ -33,8 +21,12 @@ public class Main {
             avaliacao.setNotaLoja(notaLoja);
             avaliacao.setNotaProduto(notaProduto);
 
+            ClienteDAO clienteDAO = new ClienteDAO();
+            clienteDAO.salvar(cliente);
+
             AvaliacaoDAO dao = new AvaliacaoDAO();
             dao.salvar(avaliacao);
+
             JOptionPane.showMessageDialog(null, "Avaliação enviada com sucesso!");
 
             System.out.println("Cliente ID: " + cliente.getId());

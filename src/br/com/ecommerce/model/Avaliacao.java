@@ -6,7 +6,6 @@ public class Avaliacao {
 
     private int idLoja;
     private int idProduto;
-    private String idCliente;
     private int notaLoja;
     private int notaProduto;
 
@@ -24,14 +23,6 @@ public class Avaliacao {
 
     public void setIdProduto(int idProduto) {
         this.idProduto = idProduto;
-    }
-
-    public String getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(String idCliente) {
-        this.idCliente = idCliente;
     }
 
     public int getNotaLoja() {
@@ -59,7 +50,6 @@ public class Avaliacao {
     public Avaliacao(int idProduto, int idLoja, String idCliente, int notaLoja, int notaProduto) throws NotaInvalidaException {
         this.idProduto = idProduto;
         this.idLoja = idLoja;
-        this.idCliente = idCliente;
         setNotaLoja(notaLoja);
         setNotaProduto(notaProduto);
     }

@@ -24,9 +24,19 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(String id, String nome) {
+    public Cliente(String id) {
         this.id = id;
-        this.nome = nome;
+        this.nome = gerarNomeAleatorio();
+    }
+
+    private String gerarNomeAleatorio() {
+        String[] nomes = {"Lucas", "Ana", "Rafael", "Julia", "Bruno"};
+        String[] sobrenomes = {"Silva", "Souza", "Oliveira", "Santos", "Costa"};
+
+        String nome = nomes[(int) (Math.random() * nomes.length)];
+        String sobrenome = sobrenomes[(int) (Math.random() * sobrenomes.length)];
+
+        return nome + " " + sobrenome;
     }
 
 }
